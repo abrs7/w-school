@@ -1,0 +1,74 @@
+*{
+    padding: 0px;
+    margin: 0px
+}
+
+.header{
+    background-color: RGB(255, 165, 0);
+    line-height: 70px;
+    padding-left: 30px;
+    display: relative;
+    height: 100%;
+    
+}
+a,a:hover{
+    text-decoration: none!important;
+
+}
+
+.logout{
+    display: inline-block;
+    right: 2%;
+    float: right;
+    margin-right: 20px;
+    padding-right: 20px;
+    
+}
+
+.adm_ul{
+    background-color: #424a5b;
+    width: 24%;
+    height: 100%;
+    position: fixed;
+    font-size: 15px;
+    
+    text-align: center;
+    padding-top: 10px;
+
+}
+ .adm_a{
+    color: #eee;
+    padding-top: 25px;
+    font-size: 15px;
+    
+}
+.adm_li{
+   
+    color: #eee;
+    font-size: 20px;
+    padding-bottom: 10px;
+
+}
+.adm_a:hover{
+    color: RGB(255, 165, 0);
+    font: bolder;
+}
+.content{
+    margin-left: 25%;
+    margin-top: 3%;
+    padding-left: 20px;
+}
+
+.addstu_form{
+    color: #424a5b;
+    margin-left: 20px;
+}
+/* 
+View Student page
+} */
+
+.table_th{
+    padding: 20px;
+    font-size: 20px;
+
+}

@@ -1,0 +1,126 @@
+
+<?php 
+
+session_start();
+
+if(!isset($_SESSION['username'])){
+    header("location:login.php");
+}
+elseif($_SESSION['usertype'] == "student"){
+    header("location:login.php"); 
+}
+$host = "localhost";
+
+$user = "root";
+
+$password = "";
+
+$db = "schoolproject";
+
+$data = mysqli_connect($host, $user, $password, $db);
+
+if(isset($_POST['add_student'])){
+
+$add_name = $_POST['name'];
+$add_phone = $_POST['phone'];
+$add_email = $_POST['email'];
+$add_passport = $_POST['passport'];
+$add_usertype = "student";
+
+
+
+$sql = "INSERT INTO user(name,phone,email,usertype,password) VALUES ('$add_name, $add_phone, $add_email, $add_usertype, $add_password')";
+
+$result = mysqli_query($data, $sql);
+
+if($result){
+  echo "<scrpt type='text/javascript'> alert('You have successfully upload it!!') </scrpt>";
+}else{
+  echo "Something Wrong";
+}
+
+}
+
+
+
+
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" media="screen" href="admin/stu_css.css" />
+
+<?php 
+
+ //include "admin/admin_css.css";
+  ?>
+<link rel="stylesheet" type="text/css" media="screen" href="admin/stu_add.css" />
+
+</head>
+<body>
+<?php
+   require "admin/admin_header.php";
+    
+   
+   ?>
+   <div class="content">
+     <h1>Add Students</h1>
+    <br> 
+   
+    </div>
+
+   <div class="nebas"> 
+          
+          <form class="std_form" action="#" method="POST" >
+          <center class="title_deg">Login Page
+              <h4><?php
+              error_reporting(0);
+              session_start();
+              session_destroy();
+              echo $_SESSION['addStudent'];?></h4>
+          </center>
+              <div class="std_inp"> 
+              <label >
+                  Full Name
+              </label>
+              <input type="text" name="add_name" >    
+              </div>
+              <label >
+                  Phone
+              </label>
+              <input type="text" name="add_phone"  >    
+              </div>
+              <label >
+                  Email
+              </label>
+              <input type="text"  name="add_email">    
+              </div>
+              <div> 
+              <label >
+                  Password
+              </label>
+              <input  type="password"  name="add_password">    
+              </div>
+              <div> 
+              
+              <input class="btn btn-success" type="submit" name="add_student" value="Login"> 
+            
+            <input  type="checkbox" value="" id="loginCheck" checked />
+            <label  for="loginCheck"> Remember me </label>
+          </div>
+        </div>   
+              </div>
+          </form>
+      </div>
+
+
+
+
+</body>
+</html>
